@@ -8,7 +8,6 @@ import { motion, useReducedMotion } from "motion/react";
 import { Container } from "@/components/ui/container";
 import type { AiRoleItem } from "@/content/marketing";
 import { aiRoles } from "@/content/marketing";
-import { useThemeMode } from "@/lib/theme/use-theme-mode";
 import { cn } from "@/lib/utils/cn";
 
 type AiAssistantProps = {
@@ -48,7 +47,7 @@ export const AiAssistant = ({ id = "ai-assistant", className, roles = aiRoles }:
           </motion.h2>
 
           <motion.p
-            className="text-lg text-muted md:text-xl"
+            className="text-lg text-muted-foreground md:text-xl"
             initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
             whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}

@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useEffect, useMemo, useRef } from "react";
 
+import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
-import { IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import type { FloatingCardItem } from "@/content/marketing";
@@ -90,7 +90,7 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
         rootRef.current = node;
       }}
       id="home"
-      className={cn("relative min-h-screen overflow-hidden bg-[var(--background)]", className)}
+      className={cn("relative min-h-screen overflow-hidden bg-background", className)}
     >
       <div className="pointer-events-none absolute inset-0 opacity-50">
         <div className="h-full w-full bg-grid" />
@@ -102,7 +102,7 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
       <div className="pointer-events-none absolute inset-0 hero-sweep" />
 
       <div className="pointer-events-none absolute inset-0 z-20">
-        {cards.map((card, index) => (
+        {cards.map((card) => (
           <motion.div
             key={card.id}
             ref={(node) => {
@@ -125,7 +125,7 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
                   }
             }
           >
-            <div className="float-y rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--background)_35%,transparent)] shadow-[0_25px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+            <div className="float-y rounded-2xl border border-border bg-[color-mix(in_srgb,var(--background)_35%,transparent)] shadow-[0_25px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm">
               <div className="relative h-[clamp(100px,18vw,200px)] w-[clamp(140px,25vw,280px)] overflow-hidden rounded-2xl">
                 <Image
                   src={card.src}
@@ -145,7 +145,7 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
         <Container>
           <div className="mx-auto max-w-4xl text-center">
             <motion.h1
-              className="mb-6 text-balance text-[clamp(48px,8vw,96px)] font-normal tracking-[-0.02em] text-[var(--foreground)] leading-[1.1]"
+              className="mb-6 text-balance text-[clamp(48px,8vw,96px)] font-normal tracking-[-0.02em] text-foreground leading-[1.1]"
               initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
               animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
               transition={prefersReducedMotion ? undefined : { delay: 0.05, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -155,7 +155,7 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
               automation
             </motion.h1>
             <motion.p
-              className="mx-auto mb-12 max-w-2xl text-pretty text-[clamp(16px,2vw,20px)] font-normal leading-relaxed text-[var(--muted)]"
+              className="mx-auto mb-12 max-w-2xl text-pretty text-[clamp(16px,2vw,20px)] font-normal leading-relaxed text-(--muted)"
               initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
               animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
               transition={prefersReducedMotion ? undefined : { delay: 0.12, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -171,9 +171,11 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
               animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
               transition={prefersReducedMotion ? undefined : { delay: 0.2, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Button href="#pricing" className="px-10 py-4">
-                Get Started
-                <IconArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <Button asChild className="px-10 py-4">
+                <a href="#pricing">
+                  Get Started
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </a>
               </Button>
             </motion.div>
           </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import { IconMoon, IconSun } from "@/components/icons";
+import { Moon, Sun } from "lucide-react";
+
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { Container } from "@/components/ui/container";
 import { GlowButton } from "@/components/ui/glow-button";
@@ -12,11 +13,14 @@ type SiteHeaderProps = {
 };
 
 export const SiteHeader = ({ navItems }: SiteHeaderProps) => {
-  const { mode, isMounted, toggleThemeMode } = useThemeMode();
+  const { toggleThemeMode } = useThemeMode();
 
   return (
-    <header className="fixed left-0 right-0 top-6 z-50">
-      <Container className="flex justify-center">
+        <header className="fixed left-0 right-0 top-4 sm:top-6 z-50">
+
+      <Container className="flex justify-center px-0 sm:px-6">
+
+        
         <div className="relative w-full max-w-[95%] rounded-3xl border border-(--border) bg-[color-mix(in_srgb,var(--background)_70%,transparent)] shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-md lg:max-w-5xl">
           <div className="absolute inset-0 rounded-3xl bg-[linear-gradient(to_right,color-mix(in_srgb,var(--accent)_6%,transparent),color-mix(in_srgb,var(--accent)_6%,transparent),color-mix(in_srgb,var(--accent)_6%,transparent))]" />
 
@@ -54,11 +58,8 @@ export const SiteHeader = ({ navItems }: SiteHeaderProps) => {
                 onClick={toggleThemeMode}
                 aria-label="Toggle theme"
               >
-                {isMounted && (mode === "dark" ? (
-                  <IconSun className="h-4 w-4" />
-                ) : (
-                  <IconMoon className="h-4 w-4" />
-                ))}
+                <Sun className="hidden h-4 w-4 dark:block" />
+                <Moon className="h-4 w-4 dark:hidden" />
               </button>
 
               <GlowButton href="#pricing">Get Started</GlowButton>

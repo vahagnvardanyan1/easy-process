@@ -7,7 +7,21 @@
   --card: rgba(24, 24, 27, 0.7);
   --border: rgba(255, 255, 255, 0.10);
   --accent: #4a90e2;
+  --ring: #4a90e2;
+
+  /* Shadcn-style semantic tokens (mapped below for Tailwind usage) */
+  --primary: var(--accent);
+  --primary-foreground: #ffffff;
+  --secondary: color-mix(in srgb, var(--foreground) 6%, transparent);
+  --secondary-foreground: var(--foreground);
+  --muted-surface: color-mix(in srgb, var(--foreground) 6%, transparent);
+  --muted-foreground: var(--muted);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --radius: 14px;
   --mobile-menu-backdrop: rgba(18, 18, 18, 0.86);
+  --hover-bg: rgba(255, 255, 255, 0.10);
 
   --grid-line: rgba(74, 144, 226, 0.20);
   --grid-dot: rgba(74, 144, 226, 0.55);
@@ -16,6 +30,18 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted-surface);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -27,7 +53,20 @@
   --card: rgba(24, 24, 27, 0.7);
   --border: rgba(255, 255, 255, 0.10);
   --accent: #4a90e2;
+  --ring: #4a90e2;
+
+  --primary: var(--accent);
+  --primary-foreground: #ffffff;
+  --secondary: color-mix(in srgb, var(--foreground) 6%, transparent);
+  --secondary-foreground: var(--foreground);
+  --muted-surface: color-mix(in srgb, var(--foreground) 6%, transparent);
+  --muted-foreground: var(--muted);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --radius: 14px;
   --mobile-menu-backdrop: rgba(18, 18, 18, 0.86);
+  --hover-bg: rgba(255, 255, 255, 0.10);
 
   --grid-line: rgba(74, 144, 226, 0.20);
   --grid-dot: rgba(74, 144, 226, 0.55);
@@ -40,7 +79,20 @@
   --card: rgba(255, 255, 255, 0.8);
   --border: rgba(0, 0, 0, 0.10);
   --accent: #4a90e2;
+  --ring: #4a90e2;
+
+  --primary: var(--accent);
+  --primary-foreground: #ffffff;
+  --secondary: rgba(0, 0, 0, 0.05);
+  --secondary-foreground: var(--foreground);
+  --muted-surface: rgba(0, 0, 0, 0.05);
+  --muted-foreground: var(--muted);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --radius: 14px;
   --mobile-menu-backdrop: rgba(245, 245, 245, 0.86);
+  --hover-bg: rgba(0, 0, 0, 0.05);
 
   --grid-line: rgba(74, 144, 226, 0.15);
   --grid-dot: rgba(74, 144, 226, 0.40);
@@ -121,6 +173,101 @@ body {
 .marquee-x {
   width: max-content;
   animation: marquee 40s linear infinite;
+}
+
+/* Radix (Dialog/Sheet) animations */
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sheet-down-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sheet-up-out {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes sheet-right-in {
+  from {
+    transform: translate3d(18px, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sheet-right-out {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(18px, 0, 0);
+  }
+}
+
+@keyframes sheet-left-in {
+  from {
+    transform: translate3d(-18px, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sheet-left-out {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-18px, 0, 0);
+  }
+}
+
+@keyframes sheet-bottom-in {
+  from {
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sheet-bottom-out {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 18px, 0);
+  }
 }
 
 /* Scroll reveal (lightweight; JS only toggles the class) */

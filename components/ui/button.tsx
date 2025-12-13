@@ -1,64 +1,55 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes } from "react";
+import { forwardRef } from "react";
+
+import { Slot } from "@radix-ui/react-slot";
+import { cva } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils/cn";
 
-type ButtonVariant = "primary" | "secondary" | "ghost";
+export const buttonVariants = cva(
+  "inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        primary: "bg-primary text-primary-foreground shadow-[0_12px_40px_rgba(74,144,226,0.25)] hover:brightness-110",
+        secondary:
+          "border border-border bg-secondary text-secondary-foreground hover:bg-[color-mix(in_srgb,var(--foreground)_10%,transparent)]",
+        ghost: "bg-transparent text-foreground hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)]",
+      },
+      size: {
+        sm: "h-9 px-4 text-xs",
+        md: "h-11 px-6",
+        lg: "h-12 px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      size: "md",
+    },
+  },
+);
 
-type SharedProps = {
-  children: ReactNode;
-  className?: string;
-  variant?: ButtonVariant;
-};
-
-type NativeButtonProps = SharedProps &
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    href?: never;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean;
   };
 
-type AnchorButtonProps = SharedProps &
-  AnchorHTMLAttributes<HTMLAnchorElement> & {
-    href: string;
-  };
-
-type ButtonProps = NativeButtonProps | AnchorButtonProps;
-
-const variantClassNameMap: Record<ButtonVariant, string> = {
-  primary:
-    "bg-[var(--accent)] text-white shadow-[0_12px_40px_rgba(74,144,226,0.25)] hover:brightness-110",
-  secondary:
-    "bg-[color-mix(in_srgb,var(--foreground)_6%,transparent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[color-mix(in_srgb,var(--foreground)_10%,transparent)]",
-  ghost:
-    "bg-transparent text-[var(--foreground)] hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)]",
-};
-
-export const Button = (props: ButtonProps) => {
-  const { className, variant = "primary", children, ...rest } = props;
-  const baseClassName = cn(
-    "group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] disabled:pointer-events-none disabled:opacity-50",
-    variantClassNameMap[variant],
-    className,
-  );
-
-  if ("href" in rest) {
-    // Only extract props relevant to <a>, to avoid type errors.
-    // Destructure href and all Anchor-specific props, exclude Button-specific ones.
-    // We'll use a type assertion to ensure rest is AnchorButtonProps
-    // since the discriminated union already guarantees it.
-    const { href, ...anchorProps } = rest as AnchorButtonProps;
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, type = "button", ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
     return (
-      <a className={baseClassName} href={href} {...anchorProps}>
-        {children}
-      </a>
+      <Comp
+        ref={ref}
+        type={Comp === "button" ? type : undefined}
+        className={cn(buttonVariants({ variant, size }), className)}
+        {...props}
+      />
     );
-  }
+  },
+);
 
-  const { type = "button", ...buttonProps } = rest;
-
-  return (
-    <button type={type} className={baseClassName} {...buttonProps}>
-      {children}
-    </button>
-  );
-};
+Button.displayName = "Button";
 
 

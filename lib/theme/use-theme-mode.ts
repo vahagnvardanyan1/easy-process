@@ -1,20 +1,17 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 type ThemeMode = "dark" | "light";
 
-export const useThemeMode = () => {
-  const [mode, setMode] = useState<ThemeMode>("dark");
-  const [isMounted, setIsMounted] = useState(false);
+const getInitialThemeMode = (): ThemeMode => {
+  if (typeof document === "undefined") return "dark";
+  const current = document.documentElement.dataset.theme;
+  return current === "dark" || current === "light" ? current : "dark";
+};
 
-  useEffect(() => {
-    setIsMounted(true);
-    const current = document.documentElement.dataset.theme;
-    if (current === "dark" || current === "light") {
-      setMode(current);
-    }
-  }, []);
+export const useThemeMode = () => {
+  const [mode, setMode] = useState<ThemeMode>(() => getInitialThemeMode());
 
   const setThemeMode = useCallback(({ mode: nextMode }: { mode: ThemeMode }) => {
     setMode(nextMode);
@@ -31,7 +28,7 @@ export const useThemeMode = () => {
     setThemeMode({ mode: mode === "dark" ? "light" : "dark" });
   }, [mode, setThemeMode]);
 
-  return { mode, isMounted, setThemeMode, toggleThemeMode };
+  return { mode, setThemeMode, toggleThemeMode };
 };
 
 

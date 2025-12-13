@@ -1,7 +1,8 @@
-'use client';
+"use client";
+
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
-import { IconFacebook, IconInstagram, IconLinkedIn, IconMail, IconMapPin, IconPhone } from "@/components/icons";
 import { Container } from "@/components/ui/container";
 import { footerContactItems, footerQuickLinks, footerServices, footerSocialLinks } from "@/content/footer";
 
@@ -10,15 +11,15 @@ export const SiteFooter = () => {
   const prefersReducedMotion = useReducedMotion();
 
   const socialIconByKey = {
-    instagram: IconInstagram,
-    facebook: IconFacebook,
-    linkedin: IconLinkedIn,
+    instagram: Instagram,
+    facebook: Facebook,
+    linkedin: Linkedin,
   } as const;
 
   const contactIconByKey = {
-    mail: IconMail,
-    phone: IconPhone,
-    location: IconMapPin,
+    mail: Mail,
+    phone: Phone,
+    location: MapPin,
   } as const;
 
   return (

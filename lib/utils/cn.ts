@@ -1,5 +1,8 @@
-type CnInput = string | null | undefined | false;
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-export const cn = (...inputs: CnInput[]) => inputs.filter(Boolean).join(" ");
+type CnInput = Parameters<typeof clsx>;
+
+export const cn = (...inputs: CnInput) => twMerge(clsx(inputs));
 
 
