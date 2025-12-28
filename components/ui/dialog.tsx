@@ -56,7 +56,7 @@ export const DialogContent = forwardRef<
         {children}
         <DialogPrimitive.Close
           className={cn(
-            "absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full",
+            "absolute right-4 top-4 z-50 inline-flex h-10 w-10 items-center justify-center rounded-full",
             "text-foreground transition hover:bg-(--hover-bg)",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           )}

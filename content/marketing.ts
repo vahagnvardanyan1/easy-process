@@ -115,7 +115,7 @@ export const logos: LogoItem[] = [
 export const services: ServiceItem[] = [
   {
     title: "Web Development",
-    description: "Custom web applications built with scalable architecture and clean DX.",
+    description: "New year, new website! Launch 2026 with a custom web application built for scale and success.",
     accentClassName: "from-blue-500/20 to-cyan-500/20",
     image: {
       src: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&fit=crop&w=1600&q=80",
@@ -124,7 +124,7 @@ export const services: ServiceItem[] = [
   },
   {
     title: "Brand Identity",
-    description: "Distinct brand systems that capture your essence and resonate with your audience.",
+    description: "Start fresh with a bold brand identity that makes 2026 your breakthrough year.",
     accentClassName: "from-purple-500/20 to-pink-500/20",
     image: {
       src: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=80",
@@ -133,7 +133,7 @@ export const services: ServiceItem[] = [
   },
   {
     title: "UI/UX Design",
-    description: "Intuitive interfaces designed with precision, backed by user research and data.",
+    description: "Reimagine your user experience. Make 2026 the year your customers fall in love with your product.",
     accentClassName: "from-cyan-500/20 to-teal-500/20",
     image: {
       src: "https://images.unsplash.com/photo-1586717799252-bd134ad00e26?auto=format&fit=crop&w=1600&q=80",
@@ -142,7 +142,7 @@ export const services: ServiceItem[] = [
   },
   {
     title: "Performance Optimization",
-    description: "Lightning-fast experiences through pragmatic profiling and best practices.",
+    description: "New year resolution: lightning-fast load times. Boost your performance and user satisfaction.",
     accentClassName: "from-yellow-500/20 to-orange-500/20",
     image: {
       src: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&w=1600&q=80",
@@ -151,7 +151,7 @@ export const services: ServiceItem[] = [
   },
   {
     title: "Motion Design",
-    description: "Purposeful animations and micro-interactions that improve comprehension.",
+    description: "Bring your 2026 vision to life with animations that captivate and engage your audience.",
     accentClassName: "from-pink-500/20 to-rose-500/20",
     image: {
       src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1600&q=80",
@@ -160,7 +160,7 @@ export const services: ServiceItem[] = [
   },
   {
     title: "Digital Strategy",
-    description: "Data-driven strategy to elevate your digital presence and drive growth.",
+    description: "New year, new strategy! Data-driven planning to dominate your market in 2026 and beyond.",
     accentClassName: "from-indigo-500/20 to-blue-500/20",
     image: {
       src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80",

@@ -4,7 +4,9 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useCallback, useMemo, useState } from "react";
 
+import { BookCallDialog } from "@/components/marketing/book-call-dialog";
 import { Container } from "@/components/ui/container";
+import { Button } from "@/components/ui/button";
 import type { ServiceItem } from "@/content/marketing";
 import { services } from "@/content/marketing";
 import { useInterval } from "@/lib/hooks/use-interval";
@@ -101,14 +103,35 @@ export const ServicesCarousel = ({ items = services, className }: ServicesCarous
       <Container>
         <div className="mx-auto mb-16 max-w-3xl text-center md:mb-20">
           <div className="mb-4 inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] px-4 py-1.5">
-            <span className="text-xs font-semibold uppercase tracking-wider text-(--accent)">What We Do</span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-(--accent)">2026 Vision</span>
           </div>
           <h2 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Our Services
+            Elevate Your Digital Excellence in 2026
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-[color-mix(in_srgb,var(--foreground)_65%,transparent)] md:text-xl">
-            Crafting digital experiences that push boundaries and set new standards.
+            Partner with us to craft sophisticated digital solutions that drive measurable results and lasting impact.
           </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            <BookCallDialog>
+              <Button
+                size="lg"
+                className="group relative w-full overflow-hidden bg-(--accent) px-6 text-sm font-semibold text-white hover:bg-(--accent)/90 sm:w-auto sm:px-8 sm:text-base"
+              >
+                Book a Call
+                <span className="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">
+                  →
+                </span>
+              </Button>
+            </BookCallDialog>
+            <Button
+              size="lg"
+              variant="secondary"
+              className="w-full border-[color-mix(in_srgb,var(--accent)_45%,transparent)] px-6 text-sm font-semibold hover:bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] sm:w-auto sm:px-8 sm:text-base"
+              asChild
+            >
+              <a href="#portfolio">View Our Work</a>
+            </Button>
+          </div>
         </div>
 
         <div className="relative">
