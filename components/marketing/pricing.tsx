@@ -73,7 +73,7 @@ export const Pricing = ({ id = "pricing", className }: PricingProps) => {
   }, []);
 
   return (
-    <section id={id} className={cn("relative w-full overflow-hidden bg-background py-16 md:py-24", className)}>
+    <section id={id} className={cn("relative w-full overflow-hidden bg-background py-16 md:py-24 scroll-mt-20 sm:scroll-mt-24", className)}>
       <Container>
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}

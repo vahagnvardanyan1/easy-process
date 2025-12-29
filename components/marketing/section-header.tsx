@@ -13,7 +13,7 @@ type SectionHeaderProps = {
 
 export const SectionHeader = ({ eyebrow, title, description, id, align = "center", className }: SectionHeaderProps) => {
   return (
-    <section id={id} className={cn("py-12 md:py-20", className)}>
+    <section id={id} className={cn("py-12 md:py-20 scroll-mt-20 sm:scroll-mt-24", className)}>
       <Container>
         <div className={cn("mx-auto max-w-3xl", align === "center" ? "text-center" : "text-left")}>
           {eyebrow ? (

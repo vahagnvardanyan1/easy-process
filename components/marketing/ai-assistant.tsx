@@ -33,7 +33,7 @@ export const AiAssistant = ({ id = "ai-assistant", className, roles = aiRoles }:
   }, [roles]);
 
   return (
-    <section id={id} className={cn("relative overflow-hidden bg-[#FFFCF7] px-6 py-20 md:py-32", className)}>
+    <section id={id} className={cn("relative overflow-hidden bg-[#FFFCF7] px-6 pt-20 pb-0 md:pt-32", className)}>
       <div className="mx-auto max-w-7xl">
         <div className="relative z-10 mb-16 text-center md:mb-24">
           <motion.h2

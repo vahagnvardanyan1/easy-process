@@ -14,7 +14,7 @@ type FeaturesGridProps = {
 
 export const FeaturesGrid = ({ id = "features", className, items = features }: FeaturesGridProps) => {
   return (
-    <section id={id} className={cn("relative w-full bg-[var(--background)] py-16 md:py-24", className)}>
+    <section id={id} className={cn("relative w-full bg-[var(--background)] py-16 md:py-24 scroll-mt-20 sm:scroll-mt-24", className)}>
       <Container>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (

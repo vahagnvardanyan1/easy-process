@@ -90,7 +90,7 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
         rootRef.current = node;
       }}
       id="home"
-      className={cn("relative min-h-screen overflow-hidden bg-background", className)}
+      className={cn("relative min-h-screen overflow-hidden bg-background scroll-mt-20 sm:scroll-mt-24", className)}
     >
       <div className="pointer-events-none absolute inset-0 opacity-50">
         <div className="h-full w-full bg-grid" />
