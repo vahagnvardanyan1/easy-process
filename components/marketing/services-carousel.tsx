@@ -117,7 +117,7 @@ export const ServicesCarousel = ({ items, className, copy }: ServicesCarouselPro
           <div className="mb-4 inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] px-4 py-1.5">
             <span className="text-xs font-semibold uppercase tracking-wider text-(--accent)">{copy.badge}</span>
           </div>
-          <h2 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight leading-snug text-foreground md:text-5xl lg:text-6xl">
             {copy.title}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-[color-mix(in_srgb,var(--foreground)_65%,transparent)] md:text-xl">
