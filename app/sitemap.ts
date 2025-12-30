@@ -1,28 +1,33 @@
 import type { MetadataRoute } from "next";
 
 const sitemap = (): MetadataRoute.Sitemap => {
-  const baseUrl = "https://https://process-easy.com";
+  const baseUrl = "https://process-easy.com";
+  const locales = ["en", "ru", "hy"] as const;
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${baseUrl}/terms-of-service`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-  ];
+  const now = new Date();
+
+  return locales.flatMap((locale) => {
+    return [
+      {
+        url: `${baseUrl}/${locale}`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: locale === "en" ? 1 : 0.9,
+      },
+      {
+        url: `${baseUrl}/${locale}/privacy-policy`,
+        lastModified: now,
+        changeFrequency: "yearly",
+        priority: 0.2,
+      },
+      {
+        url: `${baseUrl}/${locale}/terms-of-service`,
+        lastModified: now,
+        changeFrequency: "yearly",
+        priority: 0.2,
+      },
+    ];
+  });
 };
 
 export default sitemap;

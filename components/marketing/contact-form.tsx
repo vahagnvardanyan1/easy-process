@@ -20,6 +20,22 @@ type FormField = keyof FormData;
 
 type SubmitStatus = "idle" | "success" | "error";
 
+type ContactFormCopy = {
+  fields: {
+    name: { label: string; placeholder: string; requiredAsterisk: string };
+    email: { label: string; placeholder: string; requiredAsterisk: string };
+    phone: { label: string; placeholder: string };
+    company: { label: string; placeholder: string };
+    service: { label: string; placeholderOption: string; requiredAsterisk: string };
+    preferredDate: { label: string };
+    message: { label: string; placeholder: string };
+  };
+  serviceOptions: string[];
+  submit: { submitting: string; idle: string };
+  status: { success: string; error: string };
+  errors: { submitFailed: string };
+};
+
 const INITIAL_FORM_DATA: FormData = {
   name: "",
   email: "",
@@ -30,17 +46,11 @@ const INITIAL_FORM_DATA: FormData = {
   preferredDate: "",
 };
 
-const SERVICE_OPTIONS = [
-  "Web Development",
-  "Brand Identity",
-  "UI/UX Design",
-  "Performance Optimization",
-  "Motion Design",
-  "Digital Strategy",
-  "Other",
-] as const;
+type ContactFormProps = {
+  copy: ContactFormCopy;
+};
 
-export const ContactForm = () => {
+export const ContactForm = ({ copy }: ContactFormProps) => {
   const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
@@ -67,7 +77,7 @@ export const ContactForm = () => {
         });
 
         if (!response.ok) {
-          throw new Error("Failed to submit form");
+          throw new Error(copy.errors.submitFailed);
         }
 
         setSubmitStatus("success");
@@ -83,7 +93,7 @@ export const ContactForm = () => {
         setIsSubmitting(false);
       }
     },
-    [formData],
+    [copy.errors.submitFailed, formData],
   );
 
   return (
@@ -91,7 +101,7 @@ export const ContactForm = () => {
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-2 block text-sm font-semibold text-foreground">
-            Full Name <span className="text-red-500">*</span>
+            {copy.fields.name.label} <span className="text-red-500">{copy.fields.name.requiredAsterisk}</span>
           </label>
           <input
             type="text"
@@ -101,13 +111,13 @@ export const ContactForm = () => {
             value={formData.name}
             onChange={(e) => onInputChange({ field: "name", value: e.target.value })}
             className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
-            placeholder="John Doe"
+            placeholder={copy.fields.name.placeholder}
           />
         </div>
 
         <div>
           <label htmlFor="email" className="mb-2 block text-sm font-semibold text-foreground">
-            Email Address <span className="text-red-500">*</span>
+            {copy.fields.email.label} <span className="text-red-500">{copy.fields.email.requiredAsterisk}</span>
           </label>
           <input
             type="email"
@@ -117,7 +127,7 @@ export const ContactForm = () => {
             value={formData.email}
             onChange={(e) => onInputChange({ field: "email", value: e.target.value })}
             className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
-            placeholder="john@company.com"
+            placeholder={copy.fields.email.placeholder}
           />
         </div>
       </div>
@@ -125,7 +135,7 @@ export const ContactForm = () => {
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="phone" className="mb-2 block text-sm font-semibold text-foreground">
-            Phone Number
+            {copy.fields.phone.label}
           </label>
           <input
             type="tel"
@@ -134,13 +144,13 @@ export const ContactForm = () => {
             value={formData.phone}
             onChange={(e) => onInputChange({ field: "phone", value: e.target.value })}
             className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
-            placeholder="+1 (555) 000-0000"
+            placeholder={copy.fields.phone.placeholder}
           />
         </div>
 
         <div>
           <label htmlFor="company" className="mb-2 block text-sm font-semibold text-foreground">
-            Company
+            {copy.fields.company.label}
           </label>
           <input
             type="text"
@@ -149,7 +159,7 @@ export const ContactForm = () => {
             value={formData.company}
             onChange={(e) => onInputChange({ field: "company", value: e.target.value })}
             className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
-            placeholder="Your Company"
+            placeholder={copy.fields.company.placeholder}
           />
         </div>
       </div>
@@ -157,7 +167,7 @@ export const ContactForm = () => {
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="service" className="mb-2 block text-sm font-semibold text-foreground">
-            Service <span className="text-red-500">*</span>
+            {copy.fields.service.label} <span className="text-red-500">{copy.fields.service.requiredAsterisk}</span>
           </label>
           <div className="relative">
             <select
@@ -168,8 +178,8 @@ export const ContactForm = () => {
               onChange={(e) => onInputChange({ field: "service", value: e.target.value })}
               className="w-full appearance-none rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
             >
-              <option value="">Select a service</option>
-              {SERVICE_OPTIONS.map((service) => (
+              <option value="">{copy.fields.service.placeholderOption}</option>
+              {copy.serviceOptions.map((service) => (
                 <option key={service} value={service}>
                   {service}
                 </option>
@@ -191,7 +201,7 @@ export const ContactForm = () => {
 
         <div>
           <label htmlFor="preferredDate" className="mb-2 block text-sm font-semibold text-foreground">
-            Preferred Date
+            {copy.fields.preferredDate.label}
           </label>
           <input
             type="date"
@@ -207,7 +217,7 @@ export const ContactForm = () => {
 
       <div>
         <label htmlFor="message" className="mb-2 block text-sm font-semibold text-foreground">
-          Message
+          {copy.fields.message.label}
         </label>
         <textarea
           id="message"
@@ -216,7 +226,7 @@ export const ContactForm = () => {
           value={formData.message}
           onChange={(e) => onInputChange({ field: "message", value: e.target.value })}
           className="w-full resize-none rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
-          placeholder="Share your vision and objectives for 2026..."
+          placeholder={copy.fields.message.placeholder}
         />
       </div>
 
@@ -230,7 +240,7 @@ export const ContactForm = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
           <p className="text-sm font-medium text-green-600 dark:text-green-400">
-            Success! We&apos;ll contact you within 24 hours to discuss your project.
+            {copy.status.success}
           </p>
         </motion.div>
       )}
@@ -245,7 +255,7 @@ export const ContactForm = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
           <p className="text-sm font-medium text-red-600 dark:text-red-400">
-            Something went wrong. Please try again or email us directly.
+            {copy.status.error}
           </p>
         </motion.div>
       )}
@@ -263,11 +273,11 @@ export const ContactForm = () => {
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 className="mr-2 h-4 w-4 rounded-full border-2 border-white border-t-transparent"
               />
-              Submitting...
+              {copy.submit.submitting}
             </>
           ) : (
             <>
-              Request Consultation
+              {copy.submit.idle}
               <motion.span
                 className="ml-2 inline-block"
                 animate={{ x: [0, 4, 0] }}

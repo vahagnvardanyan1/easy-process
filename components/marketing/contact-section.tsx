@@ -1,5 +1,7 @@
 "use client";
 
+import type { ComponentProps } from "react";
+
 import { motion, useReducedMotion } from "motion/react";
 
 import { ContactForm } from "@/components/marketing/contact-form";
@@ -9,9 +11,15 @@ import { cn } from "@/lib/utils/cn";
 type ContactSectionProps = {
   id?: string;
   className?: string;
+  copy: {
+    badge: string;
+    title: string;
+    description: string;
+  };
+  formCopy: ComponentProps<typeof ContactForm>["copy"];
 };
 
-export const ContactSection = ({ id = "contact", className }: ContactSectionProps) => {
+export const ContactSection = ({ id = "contact", className, copy, formCopy }: ContactSectionProps) => {
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -45,14 +53,13 @@ export const ContactSection = ({ id = "contact", className }: ContactSectionProp
                     }
               }
             />
-            <span className="text-xs font-semibold uppercase tracking-wider text-(--accent)">Let&apos;s Connect</span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-(--accent)">{copy.badge}</span>
           </div>
           <h2 className="mb-4 text-balance text-[clamp(36px,6vw,56px)] font-normal tracking-[-0.02em] text-foreground leading-[1.1]">
-            Schedule a Strategic Consultation
+            {copy.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Transform your vision into reality with our expert team. Share your details below, and we&apos;ll connect within 24
-            hours to discuss your 2026 objectives.
+            {copy.description}
           </p>
         </motion.div>
 
@@ -64,7 +71,7 @@ export const ContactSection = ({ id = "contact", className }: ContactSectionProp
           className="mx-auto mt-12 max-w-2xl"
         >
           <div className="rounded-3xl border border-border bg-[color-mix(in_srgb,var(--background)_55%,transparent)] p-6 shadow-[0_18px_55px_rgba(0,0,0,0.20)] backdrop-blur-sm md:p-8">
-            <ContactForm />
+            <ContactForm copy={formCopy} />
           </div>
         </motion.div>
       </Container>

@@ -6,14 +6,24 @@ import { useMemo } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { Container } from "@/components/ui/container";
-import type { AiRoleItem } from "@/content/marketing";
-import { aiRoles } from "@/content/marketing";
 import { cn } from "@/lib/utils/cn";
+
+type AiRoleItem = {
+  id: number;
+  label: string;
+  className: string;
+  delayMs: number;
+};
 
 type AiAssistantProps = {
   id?: string;
   className?: string;
-  roles?: AiRoleItem[];
+  roles: AiRoleItem[];
+  copy: {
+    title: string;
+    description: string;
+    srOnlyDescription: string;
+  };
 };
 
 const getFloatDurationSeconds = ({ roleId }: { roleId: number }) => {
@@ -21,7 +31,7 @@ const getFloatDurationSeconds = ({ roleId }: { roleId: number }) => {
   return 3.2 + bucket * 0.35;
 };
 
-export const AiAssistant = ({ id = "ai-assistant", className, roles = aiRoles }: AiAssistantProps) => {
+export const AiAssistant = ({ id = "ai-assistant", className, roles, copy }: AiAssistantProps) => {
   const prefersReducedMotion = useReducedMotion();
 
   const roleMotion = useMemo(() => {
@@ -43,7 +53,7 @@ export const AiAssistant = ({ id = "ai-assistant", className, roles = aiRoles }:
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            Giving everyone an AI assistant won&apos;t solve the problem
+            {copy.title}
           </motion.h2>
 
           <motion.p
@@ -53,7 +63,7 @@ export const AiAssistant = ({ id = "ai-assistant", className, roles = aiRoles }:
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            More tools won&apos;t overcome the limitations of your org chart.
+            {copy.description}
           </motion.p>
         </div>
 
@@ -150,7 +160,7 @@ export const AiAssistant = ({ id = "ai-assistant", className, roles = aiRoles }:
         </div>
       </div>
       <Container className="sr-only">
-        <p>AI assistant role visualization</p>
+        <p>{copy.srOnlyDescription}</p>
       </Container>
     </section>
   );

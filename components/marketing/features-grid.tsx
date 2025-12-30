@@ -2,23 +2,26 @@ import Image from "next/image";
 
 import { Reveal } from "@/components/motion/reveal";
 import { Container } from "@/components/ui/container";
-import type { FeatureItem } from "@/content/features";
-import { features } from "@/content/features";
 import { cn } from "@/lib/utils/cn";
 
 type FeaturesGridProps = {
   id?: string;
   className?: string;
-  items?: FeatureItem[];
+  items: {
+    id: string;
+    title: string;
+    description: string;
+    image: { src: string; alt: string };
+  }[];
 };
 
-export const FeaturesGrid = ({ id = "features", className, items = features }: FeaturesGridProps) => {
+export const FeaturesGrid = ({ id = "features", className, items }: FeaturesGridProps) => {
   return (
     <section id={id} className={cn("relative w-full bg-[var(--background)] py-16 md:py-24 scroll-mt-20 sm:scroll-mt-24", className)}>
       <Container>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
-            <Reveal key={item.title} delayMs={index * 70}>
+            <Reveal key={item.id} delayMs={index * 70}>
               <article className="group overflow-hidden rounded-3xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--background)_55%,transparent)] shadow-[0_18px_55px_rgba(0,0,0,0.18)] backdrop-blur-sm">
                 <div className="relative h-64 overflow-hidden">
                   <Image

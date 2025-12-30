@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const robots = (): MetadataRoute.Robots => {
   return {
     rules: [{ userAgent: "*", allow: "/" }],
-    sitemap: "https://example.com/sitemap.xml",
+    sitemap: "https://process-easy.com/sitemap.xml",
   };
 };
 

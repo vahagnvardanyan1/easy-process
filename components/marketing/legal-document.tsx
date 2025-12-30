@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import type { LegalDocument as LegalDocumentType } from "@/content/legal";
+import type { LegalDocument as LegalDocumentType } from "@/lib/legal/types";
 
 type LegalDocumentProps = {
   document: LegalDocumentType;

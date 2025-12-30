@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -14,31 +13,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Automation Agency",
-    template: "%s | Automation Agency",
-  },
-  description: "We build systems that help businesses scale—automation, IT solutions, and marketing.",
-  metadataBase: new URL("https://example.com"),
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    title: "Automation Agency",
-    description: "We build systems that help businesses scale—automation, IT solutions, and marketing.",
-    url: "/",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export { metadata } from "./[locale]/layout";
 
 const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

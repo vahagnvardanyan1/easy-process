@@ -1,0 +1,300 @@
+{
+  "ui": {
+    "header": {
+      "brandSrOnly": "Automation Agency",
+      "themeToggleAriaLabel": "Toggle theme",
+      "localeSwitcherAriaLabel": "Change language",
+      "mobileNav": {
+        "openMenuAriaLabel": "Open menu",
+        "closeMenuAriaLabel": "Close menu",
+        "loginLabel": "Login",
+        "getStartedLabel": "Get Started"
+      }
+    },
+    "marketingPage": {
+      "meta": {
+        "title": "Automation Agency",
+        "description": "We build systems that help businesses scale—automation, IT solutions, and marketing."
+      },
+      "hero": {
+        "titleLine1": "Your partner for digital",
+        "titleLine2": "automation",
+        "descriptionLine1": "We build systems that help businesses scale.",
+        "descriptionLine2": "Automation, IT solutions, and marketing — all in one place.",
+        "ctaLabel": "Get Started",
+        "ctaHref": "#services"
+      },
+      "services": {
+        "badge": "2026 Vision",
+        "title": "Elevate Your Digital Excellence in 2026",
+        "description": "Partner with us to craft sophisticated digital solutions that drive measurable results and lasting impact.",
+        "prevAriaLabel": "Previous service",
+        "nextAriaLabel": "Next service",
+        "dotAriaLabelPrefix": "Go to service"
+      },
+      "portfolio": {
+        "eyebrow": "Portfolio",
+        "title": "Examples of Our Work",
+        "description": "Explore recent projects and discover how we help teams transform their digital presence through pragmatic, premium solutions."
+      },
+      "aiAssistant": {
+        "title": "Giving everyone an AI assistant won't solve the problem",
+        "description": "More tools won't overcome the limitations of your org chart.",
+        "srOnlyDescription": "AI assistant role visualization"
+      },
+      "contact": {
+        "badge": "Let's Connect",
+        "title": "Schedule a Strategic Consultation",
+        "description": "Transform your vision into reality with our expert team. Share your details below, and we'll connect within 24 hours to discuss your 2026 objectives."
+      }
+    },
+    "contactForm": {
+      "fields": {
+        "name": { "label": "Full Name", "placeholder": "John Doe", "requiredAsterisk": "*" },
+        "email": { "label": "Email Address", "placeholder": "john@company.com", "requiredAsterisk": "*" },
+        "phone": { "label": "Phone Number", "placeholder": "+1 (555) 000-0000" },
+        "company": { "label": "Company", "placeholder": "Your Company" },
+        "service": { "label": "Service", "placeholderOption": "Select a service", "requiredAsterisk": "*" },
+        "preferredDate": { "label": "Preferred Date" },
+        "message": { "label": "Message", "placeholder": "Share your vision and objectives for 2026..." }
+      },
+      "serviceOptions": [
+        "Web Development",
+        "Brand Identity",
+        "UI/UX Design",
+        "Performance Optimization",
+        "Motion Design",
+        "Digital Strategy",
+        "Other"
+      ],
+      "submit": { "submitting": "Submitting...", "idle": "Request Consultation" },
+      "status": {
+        "success": "Success! We'll contact you within 24 hours to discuss your project.",
+        "error": "Something went wrong. Please try again or email us directly."
+      },
+      "errors": { "submitFailed": "Failed to submit form" }
+    },
+    "footer": {
+      "tagline": "Building the future of digital automation with cutting-edge technology and premium design.",
+      "quickLinksHeading": "Quick Links",
+      "servicesHeading": "Services",
+      "contactHeading": "Contact",
+      "copyrightPrefix": "©",
+      "copyrightSuffix": "Automation Agency. All rights reserved.",
+      "privacyPolicyLabel": "Privacy Policy",
+      "termsOfServiceLabel": "Terms of Service"
+    }
+  },
+  "navigation": {
+    "nav": { "home": "Home", "services": "Services", "portfolio": "Portfolio", "contact": "Contact" },
+    "footerServices": {
+      "itSupport": "IT Support",
+      "automation": "Automation",
+      "marketing": "Marketing",
+      "consulting": "Consulting",
+      "development": "Development"
+    }
+  },
+  "content": {
+    "marketing": {
+      "floatingCards": [
+        { "id": 1, "alt": "Automation dashboard preview" },
+        { "id": 2, "alt": "Workflow canvas preview" },
+        { "id": 3, "alt": "Reports preview" },
+        { "id": 4, "alt": "Customer profile preview" },
+        { "id": 6, "alt": "Automations list preview" },
+        { "id": 7, "alt": "Analytics preview" }
+      ],
+      "services": [
+        {
+          "id": "web-development",
+          "title": "Web Development",
+          "description": "New year, new website! Launch 2026 with a custom web application built for scale and success.",
+          "imageAlt": "Web development workspace"
+        },
+        {
+          "id": "brand-identity",
+          "title": "Brand Identity",
+          "description": "Start fresh with a bold brand identity that makes 2026 your breakthrough year.",
+          "imageAlt": "Brand identity materials"
+        },
+        {
+          "id": "ui-ux-design",
+          "title": "UI/UX Design",
+          "description": "Reimagine your user experience. Make 2026 the year your customers fall in love with your product.",
+          "imageAlt": "UI/UX design process"
+        },
+        {
+          "id": "performance-optimization",
+          "title": "Performance Optimization",
+          "description": "New year resolution: lightning-fast load times. Boost your performance and user satisfaction.",
+          "imageAlt": "Performance optimization dashboard"
+        },
+        {
+          "id": "motion-design",
+          "title": "Motion Design",
+          "description": "Bring your 2026 vision to life with animations that captivate and engage your audience.",
+          "imageAlt": "Motion design frames"
+        },
+        {
+          "id": "digital-strategy",
+          "title": "Digital Strategy",
+          "description": "New year, new strategy! Data-driven planning to dominate your market in 2026 and beyond.",
+          "imageAlt": "Strategy planning session"
+        }
+      ],
+      "aiRoles": [
+        { "id": 1, "label": "SALES ENGINEER" },
+        { "id": 2, "label": "TECHNICAL SUPPORT" },
+        { "id": 4, "label": "ACCOUNT EXECUTIVE" },
+        { "id": 5, "label": "CUSTOMER SUCCESS MANAGER" },
+        { "id": 6, "label": "ACCOUNT MANAGER" },
+        { "id": 7, "label": "IMPLEMENTATION SPECIALIST" },
+        { "id": 8, "label": "GENERAL SPECIALIST" },
+        { "id": 9, "label": "PAYROLL OPERATIONS" },
+        { "id": 11, "label": "HR OPERATIONS" },
+        { "id": 12, "label": "ONBOARDING SPECIALIST" }
+      ]
+    },
+    "features": {
+      "items": [
+        {
+          "id": "iterative-design",
+          "title": "Iterative Design",
+          "description": "Refine concepts across copy, UI, and implementation with a fast feedback loop.",
+          "imageAlt": "Abstract gradient background"
+        },
+        {
+          "id": "production-engineering",
+          "title": "Production Engineering",
+          "description": "Ship reliable systems with pragmatic architecture, testing, and performance budgets.",
+          "imageAlt": "Code editor on a laptop"
+        },
+        {
+          "id": "human-centered-ux",
+          "title": "Human-Centered UX",
+          "description": "Design flows that reduce friction, increase clarity, and improve conversion.",
+          "imageAlt": "UX sketches and wireframes"
+        },
+        {
+          "id": "brand-systems",
+          "title": "Brand Systems",
+          "description": "Build a cohesive identity that looks premium across web, product, and marketing.",
+          "imageAlt": "Brand identity materials on a desk"
+        },
+        {
+          "id": "performance-first",
+          "title": "Performance First",
+          "description": "Optimize what matters: Core Web Vitals, perceived speed, and accessibility.",
+          "imageAlt": "Analytics dashboard"
+        },
+        {
+          "id": "launch-and-iterate",
+          "title": "Launch & Iterate",
+          "description": "Go live with confidence, then iterate with data-driven improvements.",
+          "imageAlt": "Circuit board close-up"
+        }
+      ]
+    },
+    "legal": {
+      "privacyPolicy": {
+        "title": "Privacy Policy",
+        "lastUpdated": "December 29, 2025",
+        "intro": [
+          "This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with our services.",
+          "By using our website, you agree to the collection and use of information in accordance with this Policy."
+        ],
+        "sections": [
+          {
+            "title": "Information We Collect",
+            "paragraphs": ["We may collect information that you provide directly and information collected automatically."],
+            "bullets": [
+              "Contact information (such as name, email address, phone number) when you submit a form or request a consultation.",
+              "Business information you choose to share (such as company name, role, project needs).",
+              "Usage data (such as pages visited, time spent, device/browser information, and approximate location) collected through cookies or similar technologies."
+            ]
+          },
+          {
+            "title": "How We Use Information",
+            "paragraphs": ["We use information to operate, improve, and provide our services, including to:"],
+            "bullets": [
+              "Respond to inquiries and provide customer support.",
+              "Schedule and conduct calls or consultations you request.",
+              "Improve website performance, security, and user experience.",
+              "Send service-related communications and, where permitted, marketing updates you can opt out of at any time."
+            ]
+          },
+          {
+            "title": "Cookies and Similar Technologies",
+            "paragraphs": [
+              "We may use cookies and similar technologies to remember preferences and understand how visitors use our website.",
+              "You can control cookies through your browser settings; disabling cookies may impact site functionality."
+            ]
+          },
+          {
+            "title": "How We Share Information",
+            "paragraphs": ["We do not sell your personal information. We may share information in limited circumstances, including:"],
+            "bullets": [
+              "With service providers who help us operate the website and deliver services (e.g., hosting, analytics, communications).",
+              "To comply with legal obligations or respond to lawful requests.",
+              "To protect our rights, users, and the security of our services."
+            ]
+          },
+          { "title": "Data Retention", "paragraphs": ["We retain information only as long as necessary for the purposes described in this Policy, unless a longer retention period is required by law."] },
+          {
+            "title": "Security",
+            "paragraphs": [
+              "We implement reasonable administrative, technical, and physical safeguards designed to protect information.",
+              "No method of transmission or storage is 100% secure, so we cannot guarantee absolute security."
+            ]
+          },
+          { "title": "Your Choices", "paragraphs": ["Depending on your location, you may have rights regarding your personal information, such as access, correction, deletion, or objection to processing."] },
+          { "title": "Children’s Privacy", "paragraphs": ["Our website is not directed to children under 13, and we do not knowingly collect personal information from children."] },
+          { "title": "Changes to This Policy", "paragraphs": ["We may update this Privacy Policy from time to time. We will update the “Last updated” date at the top of this page."] },
+          { "title": "Contact Us", "paragraphs": ["If you have questions about this Privacy Policy, contact us at hello@agency.com."] }
+        ]
+      },
+      "termsOfService": {
+        "title": "Terms of Service",
+        "lastUpdated": "December 29, 2025",
+        "intro": [
+          "These Terms of Service govern your access to and use of our website and services.",
+          "By accessing or using the website, you agree to be bound by these Terms."
+        ],
+        "sections": [
+          {
+            "title": "Use of the Website",
+            "paragraphs": [
+              "You agree to use the website only for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit anyone else’s use of the website."
+            ],
+            "bullets": [
+              "You may not attempt to gain unauthorized access to any portion of the website or systems.",
+              "You may not interfere with or disrupt the integrity or performance of the website."
+            ]
+          },
+          {
+            "title": "Services and Engagements",
+            "paragraphs": [
+              "Any professional services (including automation, IT solutions, marketing, consulting, design, or development) are provided under separate written agreements (e.g., statement of work, proposal, or contract) that may include additional terms."
+            ]
+          },
+          {
+            "title": "Intellectual Property",
+            "paragraphs": [
+              "All website content, including text, graphics, logos, and design, is owned by us or our licensors and is protected by applicable intellectual property laws.",
+              "You may not copy, reproduce, distribute, or create derivative works from the website content without prior written permission, except as permitted by law."
+            ]
+          },
+          { "title": "Third-Party Links", "paragraphs": ["The website may contain links to third-party websites or services. We are not responsible for their content, policies, or practices."] },
+          { "title": "Disclaimer", "paragraphs": ["The website is provided on an “as is” and “as available” basis. We make no warranties, express or implied, regarding the website’s operation or the information provided."] },
+          { "title": "Limitation of Liability", "paragraphs": ["To the maximum extent permitted by law, we will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, arising from your use of the website."] },
+          { "title": "Indemnification", "paragraphs": ["You agree to indemnify and hold us harmless from any claims, damages, liabilities, and expenses arising out of your use of the website or violation of these Terms."] },
+          { "title": "Changes to These Terms", "paragraphs": ["We may update these Terms from time to time. We will update the “Last updated” date at the top of this page."] },
+          { "title": "Contact Us", "paragraphs": ["If you have questions about these Terms, contact us at hello@agency.com."] }
+        ]
+      }
+    }
+  }
+}
+
+

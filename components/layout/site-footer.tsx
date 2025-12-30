@@ -6,9 +6,33 @@ import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react
 import { motion, useReducedMotion } from "motion/react";
 
 import { Container } from "@/components/ui/container";
-import { footerContactItems, footerQuickLinks, footerServices, footerSocialLinks } from "@/content/footer";
 
-export const SiteFooter = () => {
+type FooterLink = { label: string; href: string };
+
+type SiteFooterProps = {
+  homeHref: string;
+  labels: {
+    brandSrOnly: string;
+    tagline: string;
+    quickLinksHeading: string;
+    servicesHeading: string;
+    contactHeading: string;
+    privacyPolicyLabel: string;
+    termsOfServiceLabel: string;
+    copyrightPrefix: string;
+    copyrightSuffix: string;
+  };
+  links: {
+    quickLinks: FooterLink[];
+    services: FooterLink[];
+    socialLinks: { key: "instagram" | "facebook" | "linkedin"; label: string; href: string }[];
+    contactItems: { key: "mail" | "phone" | "location"; label: string; href: string }[];
+    privacyPolicyHref: string;
+    termsOfServiceHref: string;
+  };
+};
+
+export const SiteFooter = ({ homeHref, labels, links }: SiteFooterProps) => {
   const year = new Date().getFullYear();
   const prefersReducedMotion = useReducedMotion();
 
@@ -37,19 +61,19 @@ export const SiteFooter = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center text-center sm:col-span-2 sm:items-start sm:text-left lg:col-span-1"
           >
-            <Link href="/#home" className="flex items-center">
+            <Link href={homeHref} className="flex items-center">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-(--accent) transition-transform duration-300 hover:scale-110">
                 <span className="h-5 w-5 rounded-sm border-2 border-white" />
               </span>
-              <span className="sr-only">Automation Agency</span>
+              <span className="sr-only">{labels.brandSrOnly}</span>
             </Link>
 
             <p className="mt-6 mb-6 max-w-xs text-sm leading-relaxed text-[color-mix(in_srgb,var(--foreground)_65%,transparent)]">
-              Building the future of digital automation with cutting-edge technology and premium design.
+              {labels.tagline}
             </p>
 
             <div className="flex items-center gap-3">
-              {footerSocialLinks.map((social) => {
+              {links.socialLinks.map((social) => {
                 const Icon = socialIconByKey[social.key];
                 return (
                   <motion.a
@@ -76,10 +100,10 @@ export const SiteFooter = () => {
             className="flex flex-col items-center sm:items-start"
           >
             <h2 className="mb-6 text-sm font-semibold uppercase tracking-wide text-foreground">
-              Quick Links
+              {labels.quickLinksHeading}
             </h2>
             <ul className="flex flex-col items-center space-y-3 sm:items-start">
-              {footerQuickLinks.map((link) => (
+              {links.quickLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
@@ -103,10 +127,10 @@ export const SiteFooter = () => {
             className="flex flex-col items-center sm:items-start"
           >
             <h2 className="mb-6 text-sm font-semibold uppercase tracking-wide text-foreground">
-              Services
+              {labels.servicesHeading}
             </h2>
             <ul className="flex flex-col items-center space-y-3 sm:items-start">
-              {footerServices.map((link) => (
+              {links.services.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
@@ -130,10 +154,10 @@ export const SiteFooter = () => {
             className="flex flex-col items-center sm:items-start"
           >
             <h2 className="mb-6 text-sm font-semibold uppercase tracking-wide text-foreground">
-              Contact
+              {labels.contactHeading}
             </h2>
             <ul className="flex flex-col items-center space-y-4 sm:items-start">
-              {footerContactItems.map((item) => {
+              {links.contactItems.map((item) => {
                 const Icon = contactIconByKey[item.key];
                 return (
                   <li key={item.key}>
@@ -155,20 +179,20 @@ export const SiteFooter = () => {
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-sm text-[color-mix(in_srgb,var(--foreground)_65%,transparent)]">
-            © {year} Automation Agency. All rights reserved.
+            {labels.copyrightPrefix} {year} {labels.copyrightSuffix}
           </p>
           <div className="flex items-center gap-6">
             <Link
-              href="/privacy-policy"
+              href={links.privacyPolicyHref}
               className="text-sm text-[color-mix(in_srgb,var(--foreground)_65%,transparent)] transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Privacy Policy
+              {labels.privacyPolicyLabel}
             </Link>
             <Link
-              href="/terms-of-service"
+              href={links.termsOfServiceHref}
               className="text-sm text-[color-mix(in_srgb,var(--foreground)_65%,transparent)] transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Terms of Service
+              {labels.termsOfServiceLabel}
             </Link>
           </div>
         </div>

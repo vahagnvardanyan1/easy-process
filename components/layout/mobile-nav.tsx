@@ -6,15 +6,34 @@ import { Menu, X } from "lucide-react";
 
 import { GlowButton } from "@/components/ui/glow-button";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import type { NavItem } from "@/content/marketing";
 import { cn } from "@/lib/utils/cn";
+
+type NavItem = {
+  label: string;
+  href: string;
+};
 
 type MobileNavProps = {
   items: NavItem[];
   className?: string;
+  labels?: {
+    openMenuAriaLabel: string;
+    closeMenuAriaLabel: string;
+    loginLabel: string;
+    getStartedLabel: string;
+  };
 };
 
-export const MobileNav = ({ items, className }: MobileNavProps) => {
+export const MobileNav = ({
+  items,
+  className,
+  labels = {
+    openMenuAriaLabel: "Open menu",
+    closeMenuAriaLabel: "Close menu",
+    loginLabel: "Login",
+    getStartedLabel: "Get Started",
+  },
+}: MobileNavProps) => {
   const dialogId = useId();
 
   return (
@@ -24,7 +43,7 @@ export const MobileNav = ({ items, className }: MobileNavProps) => {
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-foreground transition hover:bg-(--hover-bg) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            aria-label="Open menu"
+            aria-label={labels.openMenuAriaLabel}
             aria-controls={dialogId}
           >
             <Menu className="h-5 w-5" />
@@ -42,7 +61,7 @@ export const MobileNav = ({ items, className }: MobileNavProps) => {
                 <button
                   type="button"
                   className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-transparent text-foreground transition hover:bg-(--hover-bg) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  aria-label="Close menu"
+                  aria-label={labels.closeMenuAriaLabel}
                 >
                   <X className="h-6 w-6" />
                 </button>
@@ -65,13 +84,13 @@ export const MobileNav = ({ items, className }: MobileNavProps) => {
             <div className="flex w-full max-w-sm flex-col items-center gap-6">
               <SheetClose asChild>
                 <a href="#login" className="cursor-pointer text-sm text-muted-foreground transition-colors hover:text-foreground">
-                  Login
+                  {labels.loginLabel}
                 </a>
               </SheetClose>
 
               <SheetClose asChild>
-                <GlowButton href="#pricing" className="w-full">
-                  Get Started
+                <GlowButton href="#services" className="w-full">
+                  {labels.getStartedLabel}
                 </GlowButton>
               </SheetClose>
             </div>

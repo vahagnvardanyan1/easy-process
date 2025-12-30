@@ -8,13 +8,26 @@ import { motion, useReducedMotion } from "motion/react";
 
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import type { FloatingCardItem } from "@/content/marketing";
-import { floatingCards } from "@/content/marketing";
 import { cn } from "@/lib/utils/cn";
+
+type FloatingCardItem = {
+  id: number;
+  src: string;
+  alt: string;
+  className: string;
+};
 
 type HeroProps = {
   className?: string;
-  cards?: FloatingCardItem[];
+  cards: FloatingCardItem[];
+  copy: {
+    titleLine1: string;
+    titleLine2: string;
+    descriptionLine1: string;
+    descriptionLine2: string;
+    ctaLabel: string;
+    ctaHref: string;
+  };
 };
 
 const getEnterDelaySeconds = ({ id }: { id: number }) => {
@@ -23,7 +36,7 @@ const getEnterDelaySeconds = ({ id }: { id: number }) => {
   return bucket / 100;
 };
 
-export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
+export const Hero = ({ className, cards, copy }: HeroProps) => {
   const rootRef = useRef<HTMLElement | null>(null);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
   const prefersReducedMotion = useReducedMotion();
@@ -150,9 +163,9 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
               animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
               transition={prefersReducedMotion ? undefined : { delay: 0.05, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             >
-              Your partner for digital
+              {copy.titleLine1}
               <br />
-              automation
+              {copy.titleLine2}
             </motion.h1>
             <motion.p
               className="mx-auto mb-12 max-w-2xl text-pretty text-[clamp(16px,2vw,20px)] font-normal leading-relaxed text-(--muted)"
@@ -160,9 +173,9 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
               animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
               transition={prefersReducedMotion ? undefined : { delay: 0.12, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             >
-              We build systems that help businesses scale.
+              {copy.descriptionLine1}
               <br />
-              Automation, IT solutions, and marketing — all in one place.
+              {copy.descriptionLine2}
             </motion.p>
 
             <motion.div
@@ -172,8 +185,8 @@ export const Hero = ({ className, cards = floatingCards }: HeroProps) => {
               transition={prefersReducedMotion ? undefined : { delay: 0.2, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             >
               <Button asChild className="px-10 py-4">
-                <a href="#pricing">
-                  Get Started
+                <a href={copy.ctaHref}>
+                  {copy.ctaLabel}
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>

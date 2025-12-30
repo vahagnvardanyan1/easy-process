@@ -4,16 +4,33 @@ import Link from "next/link";
 
 import { Moon, Sun } from "lucide-react";
 
+import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { Container } from "@/components/ui/container";
-import type { NavItem } from "@/content/marketing";
 import { useThemeMode } from "@/lib/theme/use-theme-mode";
+
+type NavItem = {
+  label: string;
+  href: string;
+};
 
 type SiteHeaderProps = {
   navItems: NavItem[];
+  homeHref: string;
+  labels: {
+    brandSrOnly: string;
+    themeToggleAriaLabel: string;
+    localeSwitcherAriaLabel: string;
+    mobileNav: {
+      openMenuAriaLabel: string;
+      closeMenuAriaLabel: string;
+      loginLabel: string;
+      getStartedLabel: string;
+    };
+  };
 };
 
-export const SiteHeader = ({ navItems }: SiteHeaderProps) => {
+export const SiteHeader = ({ navItems, homeHref, labels }: SiteHeaderProps) => {
   const { toggleThemeMode } = useThemeMode();
 
   return (
@@ -26,11 +43,11 @@ export const SiteHeader = ({ navItems }: SiteHeaderProps) => {
           <div className="absolute inset-0 rounded-3xl bg-[linear-gradient(to_right,color-mix(in_srgb,var(--accent)_6%,transparent),color-mix(in_srgb,var(--accent)_6%,transparent),color-mix(in_srgb,var(--accent)_6%,transparent))]" />
 
           <div className="relative flex items-center gap-3 px-4 py-2.5 sm:gap-8 sm:px-5">
-            <Link href="/#home" className="flex items-center gap-3">
+            <Link href={homeHref} className="flex items-center gap-3">
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-(--accent)">
                 <span className="h-3.5 w-3.5 rounded-sm border-2 border-white" />
               </span>
-              <span className="sr-only">Automation Agency</span>
+              <span className="sr-only">{labels.brandSrOnly}</span>
             </Link>
 
             <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary">
@@ -57,11 +74,13 @@ export const SiteHeader = ({ navItems }: SiteHeaderProps) => {
                 type="button"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full text-[color-mix(in_srgb,var(--foreground)_70%,transparent)] transition hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 onClick={toggleThemeMode}
-                aria-label="Toggle theme"
+                aria-label={labels.themeToggleAriaLabel}
               >
                 <Sun className="hidden h-4 w-4 dark:block" />
                 <Moon className="h-4 w-4 dark:hidden" />
               </button>
+
+              <LocaleSwitcher ariaLabel={labels.localeSwitcherAriaLabel} />
 
               {/* <GlowButton href="#pricing">Get Started</GlowButton> */}
             </div>
@@ -70,7 +89,8 @@ export const SiteHeader = ({ navItems }: SiteHeaderProps) => {
               {/* <GlowButton href="#pricing" size="sm">
                 Get Started
               </GlowButton> */}
-              <MobileNav items={navItems} />
+              <LocaleSwitcher ariaLabel={labels.localeSwitcherAriaLabel} />
+              <MobileNav items={navItems} labels={labels.mobileNav} />
             </div>
           </div>
         </div>

@@ -11,8 +11,6 @@ type BookCallRequest = {
   preferredDate?: string;
 };
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export const POST = async (request: NextRequest) => {
   try {
     const body = (await request.json()) as BookCallRequest;
@@ -44,12 +42,17 @@ export const POST = async (request: NextRequest) => {
         })
       : "Not specified";
 
-    // Send email notification using Resend
-    if (process.env.RESEND_API_KEY && process.env.NOTIFICATION_EMAIL) {
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const notificationEmail = process.env.NOTIFICATION_EMAIL;
+
+    // Send email notification using Resend (only when configured)
+    if (resendApiKey && notificationEmail) {
       try {
+        const resend = new Resend(resendApiKey);
+
         await resend.emails.send({
           from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
-          to: process.env.NOTIFICATION_EMAIL,
+          to: notificationEmail,
           subject: `New Consultation Request: ${body.service}`,
           html: `
             <!DOCTYPE html>

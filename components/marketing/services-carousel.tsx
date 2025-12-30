@@ -5,17 +5,31 @@ import { motion, useReducedMotion } from "motion/react";
 import { useCallback, useMemo, useState } from "react";
 
 import { Container } from "@/components/ui/container";
-import type { ServiceItem } from "@/content/marketing";
-import { services } from "@/content/marketing";
 import { useInterval } from "@/lib/hooks/use-interval";
 import { cn } from "@/lib/utils/cn";
 
-type ServicesCarouselProps = {
-  items?: ServiceItem[];
-  className?: string;
+type ServiceItem = {
+  id: string;
+  title: string;
+  description: string;
+  image: { src: string; alt: string };
+  accentClassName: string;
 };
 
-export const ServicesCarousel = ({ items = services, className }: ServicesCarouselProps) => {
+type ServicesCarouselProps = {
+  items: ServiceItem[];
+  className?: string;
+  copy: {
+    badge: string;
+    title: string;
+    description: string;
+    prevAriaLabel: string;
+    nextAriaLabel: string;
+    dotAriaLabelPrefix: string;
+  };
+};
+
+export const ServicesCarousel = ({ items, className, copy }: ServicesCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const prefersReducedMotion = useReducedMotion();
 
@@ -65,7 +79,7 @@ export const ServicesCarousel = ({ items = services, className }: ServicesCarous
         }}
         transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.5, ease: "easeInOut" }}
       >
-        <div className="group relative overflow-hidden rounded-2xl border border-(--border) bg-[color-mix(in_srgb,var(--background)_55%,transparent)] shadow-[0_18px_55px_rgba(0,0,0,0.25)] backdrop-blur-sm">
+        <div className="group relative overflow-hidden rounded-2xl border border-border bg-[color-mix(in_srgb,var(--background)_55%,transparent)] shadow-[0_18px_55px_rgba(0,0,0,0.25)] backdrop-blur-sm">
           <div className="relative h-64 overflow-hidden md:h-80">
             <Image
               src={item.image.src}
@@ -101,13 +115,13 @@ export const ServicesCarousel = ({ items = services, className }: ServicesCarous
       <Container>
         <div className="mx-auto mb-16 max-w-3xl text-center md:mb-20">
           <div className="mb-4 inline-flex items-center rounded-full border border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-[color-mix(in_srgb,var(--accent)_10%,transparent)] px-4 py-1.5">
-            <span className="text-xs font-semibold uppercase tracking-wider text-(--accent)">2026 Vision</span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-(--accent)">{copy.badge}</span>
           </div>
           <h2 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Elevate Your Digital Excellence in 2026
+            {copy.title}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-[color-mix(in_srgb,var(--foreground)_65%,transparent)] md:text-xl">
-            Partner with us to craft sophisticated digital solutions that drive measurable results and lasting impact.
+            {copy.description}
           </p>
         </div>
 
@@ -115,16 +129,16 @@ export const ServicesCarousel = ({ items = services, className }: ServicesCarous
           <button
             type="button"
             onClick={goPrev}
-            className="absolute left-0 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-(--border) bg-[color-mix(in_srgb,var(--background)_65%,transparent)] text-foreground backdrop-blur-md transition hover:scale-105 hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background md:flex"
-            aria-label="Previous service"
+            className="absolute left-0 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-[color-mix(in_srgb,var(--background)_65%,transparent)] text-foreground backdrop-blur-md transition hover:scale-105 hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background md:flex"
+            aria-label={copy.prevAriaLabel}
           >
             <span aria-hidden="true">‹</span>
           </button>
           <button
             type="button"
             onClick={goNext}
-            className="absolute right-0 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-(--border) bg-[color-mix(in_srgb,var(--background)_65%,transparent)] text-foreground backdrop-blur-md transition hover:scale-105 hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background md:flex"
-            aria-label="Next service"
+            className="absolute right-0 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-[color-mix(in_srgb,var(--background)_65%,transparent)] text-foreground backdrop-blur-md transition hover:scale-105 hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background md:flex"
+            aria-label={copy.nextAriaLabel}
           >
             <span aria-hidden="true">›</span>
           </button>
@@ -146,7 +160,7 @@ export const ServicesCarousel = ({ items = services, className }: ServicesCarous
                 "h-2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                 currentIndex === index ? "w-8 bg-(--accent) opacity-100" : "w-2 bg-[color-mix(in_srgb,var(--foreground)_55%,transparent)] opacity-50",
               )}
-              aria-label={`Go to service ${index + 1}`}
+              aria-label={`${copy.dotAriaLabelPrefix} ${index + 1}`}
               aria-current={currentIndex === index}
             />
           ))}
