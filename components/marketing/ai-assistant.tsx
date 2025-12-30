@@ -147,7 +147,7 @@ export const AiAssistant = ({ id = "ai-assistant", className, roles, copy }: AiA
                     <div
                       className={cn(
                         "whitespace-nowrap rounded-md px-4 py-2 backdrop-blur-sm",
-                           "border border-[rgba(255,255,255,0.1)] bg-[rgba(30,30,30,0.9)]"
+                        "border border-border bg-[color-mix(in_srgb,var(--background)_70%,transparent)] shadow-[0_12px_34px_rgba(0,0,0,0.18)]",
                       )}
                     >
                       <span className="text-xs font-semibold tracking-wide text-foreground">{role.label}</span>
