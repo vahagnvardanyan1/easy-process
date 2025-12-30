@@ -55,7 +55,7 @@
         "includedHeading": "Included",
         "plans": [
           {
-            "name": "Professional",
+            "name": "Starter",
             "price": { "currencySymbol": "֏", "major": "70", "minorSup": "000" },
             "benefitsCountLabel": "+21 Additional Benefits",
             "benefits": [
@@ -69,7 +69,7 @@
             ]
           },
           {
-            "name": "Starter",
+            "name": "Professional",
             "price": { "currencySymbol": "֏", "major": "20", "minorSup": "000", "suffix": "+" },
             "benefitsCountLabel": "Best for small projects",
             "benefits": [
@@ -124,8 +124,8 @@
     "announcementBar": {
       "limitedOffer": "Limited offer",
       "expiresPrefix": "Discount expires in",
-      "saleText": "New Year Sale: 85% OFF • Ends Dec 31",
-      "endsAtIso": "2026-12-31T23:59:59Z",
+      "saleText": "New Year Sale: 20% OFF • Ends Jan 12",
+      "endsAtIso": "2026-01-12T23:59:59Z",
       "closeAriaLabel": "Dismiss announcement",
       "units": { "days": "d", "hours": "h", "minutes": "m", "seconds": "s" }
     }

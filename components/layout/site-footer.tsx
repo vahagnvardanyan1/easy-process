@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Container } from "@/components/ui/container";
 
 type FooterLink = { label: string; href: string };
@@ -92,12 +93,96 @@ export const SiteFooter = ({ homeHref, labels, links }: SiteFooterProps) => {
             </div>
           </motion.div>
 
+          {/* Mobile: accordion sections */}
           <motion.div
             initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
             whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center sm:items-start"
+            className="sm:hidden"
+          >
+            <Accordion type="multiple" className="overflow-hidden rounded-2xl border border-border bg-[color-mix(in_srgb,var(--background)_55%,transparent)] backdrop-blur-sm">
+              <AccordionItem value="quick-links" className="border-b border-border">
+                <AccordionTrigger className="px-4">
+                  <span className="text-sm font-semibold uppercase tracking-wide text-foreground">{labels.quickLinksHeading}</span>
+                  <span className="text-foreground/60" aria-hidden>
+                    ▾
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4">
+                  <ul className="space-y-2">
+                    {links.quickLinks.map((link) => (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          className="block rounded-xl px-3 py-3 text-base font-medium text-foreground/80 transition hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="services" className="border-b border-border">
+                <AccordionTrigger className="px-4">
+                  <span className="text-sm font-semibold uppercase tracking-wide text-foreground">{labels.servicesHeading}</span>
+                  <span className="text-foreground/60" aria-hidden>
+                    ▾
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4">
+                  <ul className="space-y-2">
+                    {links.services.map((link) => (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          className="block rounded-xl px-3 py-3 text-base font-medium text-foreground/80 transition hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="contact" className="border-b-0">
+                <AccordionTrigger className="px-4">
+                  <span className="text-sm font-semibold uppercase tracking-wide text-foreground">{labels.contactHeading}</span>
+                  <span className="text-foreground/60" aria-hidden>
+                    ▾
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4">
+                  <ul className="space-y-2">
+                    {links.contactItems.map((item) => {
+                      const Icon = contactIconByKey[item.key];
+                      return (
+                        <li key={item.key}>
+                          <a
+                            href={item.href}
+                            className="flex items-start gap-3 rounded-xl px-3 py-3 text-base font-medium text-foreground/80 transition hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                          >
+                            <Icon className="mt-1 h-5 w-5 shrink-0 text-foreground/70" />
+                            <span className="min-w-0 wrap-break-word">{item.label}</span>
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </motion.div>
+
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="hidden flex-col items-center sm:flex sm:items-start"
           >
             <h2 className="mb-6 text-sm font-semibold uppercase tracking-wide text-foreground">
               {labels.quickLinksHeading}
@@ -124,7 +209,7 @@ export const SiteFooter = ({ homeHref, labels, links }: SiteFooterProps) => {
             whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center sm:items-start"
+            className="hidden flex-col items-center sm:flex sm:items-start"
           >
             <h2 className="mb-6 text-sm font-semibold uppercase tracking-wide text-foreground">
               {labels.servicesHeading}
@@ -151,7 +236,7 @@ export const SiteFooter = ({ homeHref, labels, links }: SiteFooterProps) => {
             whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center sm:items-start"
+            className="hidden flex-col items-center sm:flex sm:items-start"
           >
             <h2 className="mb-6 text-sm font-semibold uppercase tracking-wide text-foreground">
               {labels.contactHeading}

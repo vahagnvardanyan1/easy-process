@@ -55,7 +55,7 @@
         "includedHeading": "Ներառված է",
         "plans": [
           {
-            "name": "Պրոֆեսիոնալ",
+            "name": "Սթարթ",
             "price": { "currencySymbol": "֏", "major": "70", "minorSup": "000" },
             "benefitsCountLabel": "+21 Լրացուցիչ առավելություններ",
             "benefits": [
@@ -69,7 +69,7 @@
             ]
           },
           {
-            "name": "Սթարթ",
+            "name": "Պրոֆեսիոնալ",
             "price": { "currencySymbol": "֏", "major": "20", "minorSup": "000", "suffix": "+" },
             "benefitsCountLabel": "Փոքր նախագծերի համար",
             "benefits": [
@@ -124,8 +124,8 @@
     "announcementBar": {
       "limitedOffer": "Սահմանափակ առաջարկ",
       "expiresPrefix": "Զեղչը կավարտվի՝",
-      "saleText": "Ամանորյա զեղչ՝ -85% • Մինչև Դեկ 31",
-      "endsAtIso": "2026-12-31T23:59:59Z",
+      "saleText": "Ամանորյա զեղչ՝ -20% • Մինչև Հնվ 12",
+      "endsAtIso": "2026-01-12T23:59:59Z",
       "closeAriaLabel": "Փակել հայտարարությունը",
       "units": { "days": "օր", "hours": "ժ", "minutes": "ր", "seconds": "վ" }
     }

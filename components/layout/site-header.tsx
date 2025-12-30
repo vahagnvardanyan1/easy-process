@@ -7,6 +7,7 @@ import { Moon, Sun } from "lucide-react";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { Container } from "@/components/ui/container";
+import { cn } from "@/lib/utils/cn";
 import { useThemeMode } from "@/lib/theme/use-theme-mode";
 
 type NavItem = {
@@ -26,6 +27,31 @@ type SiteHeaderProps = {
       closeMenuAriaLabel: string;
     };
   };
+};
+
+type ThemeToggleButtonProps = {
+  ariaLabel: string;
+  onClick: () => void;
+  className?: string;
+};
+
+const ThemeToggleButton = ({ ariaLabel, onClick, className }: ThemeToggleButtonProps) => {
+  return (
+    <button
+      type="button"
+      className={cn(
+        "inline-flex h-9 w-9 items-center justify-center rounded-full text-[color-mix(in_srgb,var(--foreground)_70%,transparent)] transition",
+        "hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] hover:text-foreground",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        className,
+      )}
+      onClick={onClick}
+      aria-label={ariaLabel}
+    >
+      <Sun className="hidden h-4 w-4 dark:block" />
+      <Moon className="h-4 w-4 dark:hidden" />
+    </button>
+  );
 };
 
 export const SiteHeader = ({ navItems, homeHref, labels }: SiteHeaderProps) => {
@@ -68,15 +94,7 @@ export const SiteHeader = ({ navItems, homeHref, labels }: SiteHeaderProps) => {
                 Login
               </a> */}
 
-              <button
-                type="button"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-[color-mix(in_srgb,var(--foreground)_70%,transparent)] transition hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)] hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                onClick={toggleThemeMode}
-                aria-label={labels.themeToggleAriaLabel}
-              >
-                <Sun className="hidden h-4 w-4 dark:block" />
-                <Moon className="h-4 w-4 dark:hidden" />
-              </button>
+              <ThemeToggleButton ariaLabel={labels.themeToggleAriaLabel} onClick={toggleThemeMode} />
 
               <LocaleSwitcher ariaLabel={labels.localeSwitcherAriaLabel} />
 
@@ -87,6 +105,7 @@ export const SiteHeader = ({ navItems, homeHref, labels }: SiteHeaderProps) => {
               {/* <GlowButton href="#pricing" size="sm">
                 Get Started
               </GlowButton> */}
+              <ThemeToggleButton ariaLabel={labels.themeToggleAriaLabel} onClick={toggleThemeMode} />
               <LocaleSwitcher ariaLabel={labels.localeSwitcherAriaLabel} />
               <MobileNav items={navItems} labels={labels.mobileNav} />
             </div>
