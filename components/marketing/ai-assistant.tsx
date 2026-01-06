@@ -45,7 +45,7 @@ export const AiAssistant = ({ id = "ai-assistant", className, roles, copy }: AiA
   return (
     <section id={id} className={cn("relative overflow-hidden bg-[#FFFCF7] px-6 pt-20 pb-0 md:pt-32", className)}>
       <div className="mx-auto max-w-7xl">
-        <div className="relative z-10 mb-16 text-center md:mb-24">
+        <div className="relative z-10 text-center md:mb-24">
           <motion.h2
             className="mx-auto mb-6 max-w-4xl text-4xl font-normal tracking-[-0.02em] leading-[1.2] text-foreground md:text-5xl lg:text-6xl"
             initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
