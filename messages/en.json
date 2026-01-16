@@ -55,7 +55,7 @@
         "plans": [
           {
             "name": "Starter",
-            "price": { "currencySymbol": "֏", "major": "200", "minorSup": "000" },
+            "price": { "currencySymbol": "֏", "major": "400", "minorSup": "000" },
             "benefitsCountLabel": "+21 Additional Benefits",
             "benefits": [
               "Professional Design",
@@ -69,7 +69,7 @@
           },
           {
             "name": "Professional",
-            "price": { "currencySymbol": "֏", "major": "400", "minorSup": "000", "suffix": "+" },
+            "price": { "currencySymbol": "֏", "major": "600", "minorSup": "000", "suffix": "+" },
             "benefitsCountLabel": "Best for small projects",
             "benefits": [
               "Professional Design",

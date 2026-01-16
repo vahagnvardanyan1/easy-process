@@ -55,7 +55,7 @@
         "plans": [
           {
             "name": "Սթարթ",
-            "price": { "currencySymbol": "֏", "major": "200", "minorSup": "000" },
+            "price": { "currencySymbol": "֏", "major": "400", "minorSup": "000" },
             "benefitsCountLabel": "+21 Լրացուցիչ առավելություններ",
             "benefits": [
               "Մասնագիտական դիզայն",
@@ -69,7 +69,7 @@
           },
           {
             "name": "Պրոֆեսիոնալ",
-            "price": { "currencySymbol": "֏", "major": "400", "minorSup": "000", "suffix": "+" },
+            "price": { "currencySymbol": "֏", "major": "600", "minorSup": "000", "suffix": "+" },
             "benefitsCountLabel": "Փոքր նախագծերի համար",
             "benefits": [
               "Մասնագիտական դիզայն",
