@@ -82,35 +82,28 @@ export const services: ServiceBaseItem[] = [
     id: "web-development",
     accentClassName: "from-blue-500/20 to-cyan-500/20",
     image: {
-      src: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&fit=crop&w=1600&q=80",
-    },
-  },
-  {
-    id: "brand-identity",
-    accentClassName: "from-purple-500/20 to-pink-500/20",
-    image: {
-      src: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=80",
+      src: "/images/services/web-development.png",
     },
   },
   {
     id: "ui-ux-design",
     accentClassName: "from-cyan-500/20 to-teal-500/20",
     image: {
-      src: "https://images.unsplash.com/photo-1586717799252-bd134ad00e26?auto=format&fit=crop&w=1600&q=80",
+      src: "/images/services/ui-ux.png",
     },
   },
   {
     id: "performance-optimization",
     accentClassName: "from-yellow-500/20 to-orange-500/20",
     image: {
-      src: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&w=1600&q=80",
+      src: "/images/services/performance.png",
     },
   },
   {
     id: "digital-strategy",
     accentClassName: "from-indigo-500/20 to-blue-500/20",
     image: {
-      src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80",
+      src: "/images/services/strategy.png",
     },
   },
 ];
