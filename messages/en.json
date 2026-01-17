@@ -51,34 +51,72 @@
         "eyebrow": "Pricing",
         "title": "Website package",
         "description": "A fast, modern website with everything you need to launch confidently.",
-        "includedHeading": "Included",
+        "includedHeading": "What's included",
         "plans": [
           {
-            "name": "Starter",
-            "price": { "currencySymbol": "֏", "major": "400", "minorSup": "000" },
-            "benefitsCountLabel": "+21 Additional Benefits",
+            "name": "Starter Landing Page",
+            "price": { "currencySymbol": "֏", "major": "150", "minorSup": "000" },
+            "benefitsCountLabel": "Perfect for startups, personal brands, and product launches",
             "benefits": [
-              "Professional Design",
-              "24-Hour Creation",
-              "Free Hosting +",
-              "100% Guarantee",
-              "Online Chat",
-              "Admin Panel",
-              "Technical Support"
+              "Professional UI/UX design",
+              "Single-page landing website",
+              "Mobile & tablet responsive",
+              "Contact form integration",
+              "Basic SEO setup (Google-friendly structure)",
+              "Domain setup assistance",
+              "Free hosting (first period)",
+              "Fast delivery (up to 24-48 hours)",
+              "100% satisfaction guarantee"
             ]
           },
           {
-            "name": "Professional",
-            "price": { "currencySymbol": "֏", "major": "600", "minorSup": "000", "suffix": "+" },
-            "benefitsCountLabel": "Best for small projects",
+            "name": "Business Website",
+            "price": { "currencySymbol": "֏", "major": "250", "minorSup": "000" },
+            "benefitsCountLabel": "Ideal for small and medium businesses that need a strong online presence",
             "benefits": [
-              "Professional Design",
-              "Landing page",
-              "Mobile responsive",
-              "Free Hosting +",
-              "Contact form",
+              "Professional custom design",
+              "Up to 5 website pages",
+              "Mobile & tablet responsive",
+              "Contact form & map integration",
               "Basic SEO setup",
-              "Domain setup"
+              "Domain & hosting setup",
+              "Free hosting (first period)",
+              "Easy content management",
+              "Technical support after launch"
+            ]
+          },
+          {
+            "name": "Advanced Website + Admin Panel",
+            "price": { "currencySymbol": "֏", "major": "600", "minorSup": "000", "suffix": " - ֏700,000" },
+            "benefitsCountLabel": "Best for businesses that need automation, data management, or custom logic",
+            "benefits": [
+              "Fully custom professional design",
+              "Website with custom functionality",
+              "Custom admin panel",
+              "User & content management",
+              "Forms, dashboards, and data handling",
+              "Mobile responsive",
+              "Hosting & domain setup",
+              "Security & performance optimization",
+              "Technical support & onboarding",
+              "Scalable for future features"
+            ]
+          },
+          {
+            "name": "E-Commerce / Online Shop",
+            "price": { "currencySymbol": "֏", "major": "1", "minorSup": "000,000", "suffix": "+" },
+            "benefitsCountLabel": "Designed for businesses ready to sell online and scale",
+            "benefits": [
+              "Custom e-commerce design",
+              "Product & category management",
+              "Admin panel for orders & customers",
+              "Online payment integration",
+              "Shipping & pricing logic",
+              "Mobile responsive",
+              "SEO-ready structure",
+              "Hosting & domain setup",
+              "Technical support",
+              "Additional features based on client needs"
             ]
           }
         ]
