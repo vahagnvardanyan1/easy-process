@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { AiAssistant } from "@/components/marketing/ai-assistant";
 import { ContactSection } from "@/components/marketing/contact-section";
 import { FeaturesGrid } from "@/components/marketing/features-grid";
+import { HowItWorks } from "@/components/marketing/how-it-works";
 import { SectionHeader } from "@/components/marketing/section-header";
 import { features } from "@/content/features";
 import { aiRoles, floatingCards, services } from "@/content/marketing";
@@ -117,6 +118,11 @@ const MarketingPage = async ({ params }: MarketingPageProps) => {
       />
 
       <FeaturesGrid items={featureItems} />
+      <HowItWorks 
+        copy={messages.ui.marketingPage.howItWorks}
+        contactDialog={messages.ui.marketingPage.contact}
+        contactFormCopy={messages.ui.contactForm}
+      />
       <Pricing copy={messages.ui.marketingPage.pricing} />
       <AiAssistant copy={messages.ui.marketingPage.aiAssistant} roles={roleItems} />
       <ContactSection copy={messages.ui.marketingPage.contact} formCopy={messages.ui.contactForm} />

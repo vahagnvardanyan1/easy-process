@@ -18,7 +18,7 @@ type ContactDialogProps = {
 export const ContactDialog = ({ open, onOpenChange, copy, formCopy }: ContactDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={(nextOpen) => onOpenChange({ open: nextOpen })}>
-      <DialogContent className="w-[min(92vw,720px)] max-h-[85vh] overflow-y-auto p-6 sm:max-h-[90vh] sm:p-8">
+      <DialogContent className="w-[min(92vw,720px)] max-h-[85vh] overflow-y-auto sm:max-h-[90vh] p-4">
         <DialogHeader className="pr-10">
           <DialogTitle className="text-balance text-xl font-semibold tracking-tight sm:text-2xl">{copy.title}</DialogTitle>
           <DialogDescription className="mt-2 text-pretty text-sm">{copy.description}</DialogDescription>

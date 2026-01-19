@@ -37,6 +37,42 @@
         "title": "Examples of Our Work",
         "description": "Explore recent projects and discover how we help teams transform their digital presence through pragmatic, premium solutions."
       },
+      "howItWorks": {
+        "eyebrow": "How It Works",
+        "title": "How Easy Process Works",
+        "subtitle": "We simplify automation so your business can scale faster — without complexity.",
+        "steps": [
+          {
+            "number": "1",
+            "title": "Tell Us About Your Process",
+            "description": "Share your current workflow, challenges, and goals. We analyze where automation creates the most value."
+          },
+          {
+            "number": "2",
+            "title": "We Design the Automation Strategy",
+            "description": "Our experts create a clear automation plan tailored to your business — tools, integrations, and logic."
+          },
+          {
+            "number": "3",
+            "title": "Implementation & Integration",
+            "description": "We build and integrate the solution into your existing systems with minimal disruption."
+          },
+          {
+            "number": "4",
+            "title": "Testing & Optimization",
+            "description": "Every automation is tested, refined, and optimized for performance and reliability."
+          },
+          {
+            "number": "5",
+            "title": "Launch & Ongoing Support",
+            "description": "You go live with confidence. We provide support, monitoring, and future improvements."
+          }
+        ],
+        "cta": {
+          "label": "Start Automating Today",
+          "href": "#contact"
+        }
+      },
       "aiAssistant": {
         "title": "Giving everyone an AI assistant won't solve the problem",
         "description": "More tools won't overcome the limitations of your org chart.",
