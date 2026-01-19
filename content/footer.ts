@@ -8,7 +8,7 @@ export type FooterContact = {
   href: string;
 };
 
-export type FooterSocialKey = "instagram" | "facebook" | "linkedin";
+export type FooterSocialKey = "instagram" | "linkedin";
 
 export type FooterSocialLink = {
   key: FooterSocialKey;
@@ -44,8 +44,7 @@ export const footerServices: FooterLink[] = [
 
 
 export const footerSocialLinks: FooterSocialLink[] = [
-  { key: "instagram", label: "Instagram", href: "#instagram" },
-  { key: "facebook", label: "Facebook", href: "#facebook" },
+  { key: "instagram", label: "Instagram", href: "https://www.instagram.com/easyprocess.it" },
 ];
 
 export const footerContactItems: FooterContactItem[] = [

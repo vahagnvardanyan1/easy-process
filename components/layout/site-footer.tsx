@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -26,7 +27,7 @@ type SiteFooterProps = {
   links: {
     quickLinks: FooterLink[];
     services: FooterLink[];
-    socialLinks: { key: "instagram" | "facebook" | "linkedin"; label: string; href: string }[];
+    socialLinks: { key: "instagram" | "linkedin"; label: string; href: string }[];
     contactItems: { key: "mail" | "phone" | "location"; label: string; href: string }[];
     privacyPolicyHref: string;
     termsOfServiceHref: string;
@@ -39,7 +40,6 @@ export const SiteFooter = ({ homeHref, labels, links }: SiteFooterProps) => {
 
   const socialIconByKey = {
     instagram: Instagram,
-    facebook: Facebook,
     linkedin: Linkedin,
   } as const;
 
@@ -63,9 +63,13 @@ export const SiteFooter = ({ homeHref, labels, links }: SiteFooterProps) => {
             className="flex flex-col items-center text-center sm:col-span-2 sm:items-start sm:text-left lg:col-span-1"
           >
             <Link href={homeHref} className="flex items-center">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-(--accent) transition-transform duration-300 hover:scale-110">
-                <span className="h-5 w-5 rounded-sm border-2 border-white" />
-              </span>
+              <Image
+                src="/Logo.svg"
+                alt={labels.brandSrOnly}
+                width={76}
+                height={28}
+                className="transition-transform duration-300 hover:scale-110"
+              />
               <span className="sr-only">{labels.brandSrOnly}</span>
             </Link>
 
@@ -80,6 +84,8 @@ export const SiteFooter = ({ homeHref, labels, links }: SiteFooterProps) => {
                   <motion.a
                     key={social.key}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group relative rounded-lg border border-[color-mix(in_srgb,var(--foreground)_10%,transparent)] p-2.5 transition-all duration-300 hover:border-[color-mix(in_srgb,var(--accent)_40%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--accent) focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     whileHover={prefersReducedMotion ? undefined : { scale: 1.1, y: -2 }}
                     whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}

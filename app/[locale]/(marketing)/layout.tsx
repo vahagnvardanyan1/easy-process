@@ -66,8 +66,7 @@ const MarketingLayout = async ({ children, params }: MarketingLayoutProps) => {
             { label: messages.navigation.footerServices.development, href: withLocalePathname({ pathname: "/#development" }) },
           ],
           socialLinks: [
-            { key: "instagram", label: "Instagram", href: "#instagram" },
-            { key: "facebook", label: "Facebook", href: "#facebook" },
+            { key: "instagram", label: "Instagram", href: "https://www.instagram.com/easyprocess.it" },
           ],
           contactItems: [
             { key: "mail", label: "process.easy.agency@gmail.com", href: "mailto:process.easy.agency@gmail.com" },
