@@ -10,4 +10,10 @@ export const localeNames: Record<Locale, string> = {
   hy: "Հայերեն",
 };
 
+export const localeFlags: Record<Locale, string> = {
+  en: "🇬🇧",
+  ru: "🇷🇺",
+  hy: "🇦🇲",
+};
+
 
