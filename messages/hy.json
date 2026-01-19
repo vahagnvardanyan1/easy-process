@@ -161,8 +161,8 @@
     "announcementBar": {
       "limitedOffer": "Սահմանափակ առաջարկ",
       "expiresPrefix": "Զեղչը կավարտվի՝",
-      "saleText": "Ամանորյա զեղչ՝ -20% • Մինչև Հնվ 12",
-      "endsAtIso": "2026-01-12T23:59:59Z",
+      "saleText": "Ամանորյա զեղչ՝ -20% • Մինչև Փտր 8",
+      "endsAtIso": "2026-02-08T23:59:59Z",
       "closeAriaLabel": "Փակել հայտարարությունը",
       "units": { "days": "օր", "hours": "ժ", "minutes": "ր", "seconds": "վ" }
     }

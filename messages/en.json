@@ -161,8 +161,8 @@
     "announcementBar": {
       "limitedOffer": "Limited offer",
       "expiresPrefix": "Discount expires in",
-      "saleText": "New Year Sale: 20% OFF • Ends Jan 12",
-      "endsAtIso": "2026-01-12T23:59:59Z",
+      "saleText": "New Year Sale: 20% OFF • Ends Feb 8",
+      "endsAtIso": "2026-02-08T23:59:59Z",
       "closeAriaLabel": "Dismiss announcement",
       "units": { "days": "d", "hours": "h", "minutes": "m", "seconds": "s" }
     }

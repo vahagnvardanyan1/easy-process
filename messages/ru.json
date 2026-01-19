@@ -161,8 +161,8 @@
     "announcementBar": {
       "limitedOffer": "Ограниченное предложение",
       "expiresPrefix": "Скидка закончится через",
-      "saleText": "Новогодняя распродажа: -20% • До 12 янв.",
-      "endsAtIso": "2026-01-12T23:59:59Z",
+      "saleText": "Новогодняя распродажа: -20% • До 8 фев.",
+      "endsAtIso": "2026-02-08T23:59:59Z",
       "closeAriaLabel": "Закрыть объявление",
       "units": { "days": "д", "hours": "ч", "minutes": "м", "seconds": "с" }
     }
