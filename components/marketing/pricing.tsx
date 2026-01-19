@@ -12,7 +12,6 @@ type PricingPlanCopy = {
     currencySymbol: string;
     major: string;
     minorSup?: string;
-    suffix?: string;
   };
   benefitsCountLabel: string;
   benefits: string[];
@@ -47,7 +46,6 @@ const PricingCard = ({ copy, includedHeading }: PricingCardProps) => {
           {copy.price.minorSup ? (
             <span className="align-super text-2xl tracking-tight text-foreground/80">{copy.price.minorSup}</span>
           ) : null}
-          {copy.price.suffix ? <span className="ml-1 text-3xl font-semibold text-foreground/90">{copy.price.suffix}</span> : null}
         </span>
       </div>
 

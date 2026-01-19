@@ -87,7 +87,7 @@
           },
           {
             "name": "Advanced Website + Admin Panel",
-            "price": { "currencySymbol": "֏", "major": "600", "minorSup": "000", "suffix": " - ֏700,000" },
+            "price": { "currencySymbol": "֏", "major": "600", "minorSup": "000" },
             "benefitsCountLabel": "Best for businesses that need automation, data management, or custom logic",
             "benefits": [
               "Fully custom professional design",
