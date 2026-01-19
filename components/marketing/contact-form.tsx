@@ -99,7 +99,7 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
   return (
     <form onSubmit={onSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
-        <div>
+        <div className="min-w-0">
           <label htmlFor="name" className="mb-2 block text-sm font-semibold text-foreground">
             {copy.fields.name.label} <span className="text-red-500">{copy.fields.name.requiredAsterisk}</span>
           </label>
@@ -110,12 +110,12 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
             required
             value={formData.name}
             onChange={(e) => onInputChange({ field: "name", value: e.target.value })}
-            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
+            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-base text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
             placeholder={copy.fields.name.placeholder}
           />
         </div>
 
-        <div>
+        <div className="min-w-0">
           <label htmlFor="email" className="mb-2 block text-sm font-semibold text-foreground">
             {copy.fields.email.label} <span className="text-red-500">{copy.fields.email.requiredAsterisk}</span>
           </label>
@@ -126,14 +126,14 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
             required
             value={formData.email}
             onChange={(e) => onInputChange({ field: "email", value: e.target.value })}
-            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
+            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-base text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
             placeholder={copy.fields.email.placeholder}
           />
         </div>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <div>
+        <div className="min-w-0">
           <label htmlFor="phone" className="mb-2 block text-sm font-semibold text-foreground">
             {copy.fields.phone.label}
           </label>
@@ -143,12 +143,12 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
             name="phone"
             value={formData.phone}
             onChange={(e) => onInputChange({ field: "phone", value: e.target.value })}
-            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
+            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-base text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
             placeholder={copy.fields.phone.placeholder}
           />
         </div>
 
-        <div>
+        <div className="min-w-0">
           <label htmlFor="company" className="mb-2 block text-sm font-semibold text-foreground">
             {copy.fields.company.label}
           </label>
@@ -158,14 +158,14 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
             name="company"
             value={formData.company}
             onChange={(e) => onInputChange({ field: "company", value: e.target.value })}
-            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
+            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-base text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
             placeholder={copy.fields.company.placeholder}
           />
         </div>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <div>
+        <div className="min-w-0">
           <label htmlFor="service" className="mb-2 block text-sm font-semibold text-foreground">
             {copy.fields.service.label} <span className="text-red-500">{copy.fields.service.requiredAsterisk}</span>
           </label>
@@ -176,7 +176,7 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
               required
               value={formData.service}
               onChange={(e) => onInputChange({ field: "service", value: e.target.value })}
-              className="w-full appearance-none rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
+              className="w-full appearance-none rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-base text-foreground backdrop-blur-sm transition-all hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
             >
               <option value="">{copy.fields.service.placeholderOption}</option>
               {copy.serviceOptions.map((service) => (
@@ -199,7 +199,7 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
           </div>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <label htmlFor="preferredDate" className="mb-2 block text-sm font-semibold text-foreground">
             {copy.fields.preferredDate.label}
           </label>
@@ -210,7 +210,7 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
             value={formData.preferredDate}
             onChange={(e) => onInputChange({ field: "preferredDate", value: e.target.value })}
             min={new Date().toISOString().split("T")[0]}
-            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30 [color-scheme:light] dark:[color-scheme:dark]"
+            className="w-full rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-3 py-3 pr-3 text-base text-foreground backdrop-blur-sm transition-all hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30 scheme-light dark:scheme-dark [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-70 hover:[&::-webkit-calendar-picker-indicator]:opacity-100"
           />
         </div>
       </div>
@@ -225,7 +225,7 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
           rows={4}
           value={formData.message}
           onChange={(e) => onInputChange({ field: "message", value: e.target.value })}
-          className="w-full resize-none rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-sm text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
+          className="w-full resize-none rounded-lg border border-[color-mix(in_srgb,var(--border)_60%,transparent)] bg-[color-mix(in_srgb,var(--background)_50%,transparent)] px-4 py-3 text-base text-foreground backdrop-blur-sm transition-all placeholder:text-[color-mix(in_srgb,var(--foreground)_50%,transparent)] hover:border-(--accent)/50 focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent)/30"
           placeholder={copy.fields.message.placeholder}
         />
       </div>
@@ -264,7 +264,7 @@ export const ContactForm = ({ copy }: ContactFormProps) => {
         <Button
           type="submit"
           disabled={!isFormValid || isSubmitting}
-          className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-3 text-base font-semibold text-white shadow-[0_8px_30px_rgba(74,144,226,0.3)] transition-all hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(74,144,226,0.4)] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+          className="flex-1 bg-linear-to-r from-blue-600 to-purple-600 px-8 py-3 text-base font-semibold text-white shadow-[0_8px_30px_rgba(74,144,226,0.3)] transition-all hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(74,144,226,0.4)] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
         >
           {isSubmitting ? (
             <>
